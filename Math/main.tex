@@ -1,0 +1,169 @@
+\documentclass[12pt,a4paper,fontset=none]{ctexart}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}[BoldFont=SimHei]
+
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\hfill}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+\definecolor{capellaBlue}{RGB}{0,102,204}
+\definecolor{capellaRed}{RGB}{204,0,0} % new example color
+
+\mdfdefinestyle{theoremstyle}{
+    linecolor=capellaBlue,
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    backgroundcolor=capellaBlue!6,
+    linewidth=2pt,
+    innertopmargin=6pt,
+    innerbottommargin=6pt,
+    skipabove=4pt,
+    skipbelow=4pt
+}
+
+% identical frame style for examples but in red
+\mdfdefinestyle{examplestyle}{
+    linecolor=capellaRed,
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    backgroundcolor=capellaRed!6,
+    linewidth=2pt,
+    innertopmargin=6pt,
+    innerbottommargin=6pt,
+    skipabove=4pt,
+    skipbelow=4pt
+}
+
+\newtheoremstyle{bluehead}
+  {0pt}{0pt}
+  {\normalfont}
+  {}
+  {\bfseries\color{capellaBlue}}
+  {}
+  { }
+  {\thmname{#1}\ \thmnumber{#2}\ \thmnote{\ {\textcolor{capellaBlue}{(#3)}}}}
+
+% red heading for examples
+\newtheoremstyle{redhead}
+  {0pt}{0pt}
+  {\normalfont}
+  {}
+  {\bfseries\color{capellaRed}}
+  {}
+  { }
+  {\thmname{#1}\ \thmnumber{#2}\ \thmnote{\ {\textcolor{capellaRed}{(#3)}}}}
+
+\newcounter{theorem_counter}
+
+% definitions in blue
+\theoremstyle{bluehead}
+\newtheorem{definition}{定义}[subsection]
+\surroundwithmdframed[style=theoremstyle]{definition}
+
+% examples in red (same formatting except color)
+\theoremstyle{redhead}
+\newtheorem{example}{例题}[subsection]
+\surroundwithmdframed[style=examplestyle]{example}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{ CHM NOTE}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+\begin{minipage}{\textwidth}
+  \centering
+  {\Huge\bfseries 预科二下半学期数学笔记\par}
+  \vspace{1cm}
+  {\Large 堡堡菲\par}
+  \vspace{1cm}
+    {\large \today\par}
+\end{minipage}
+\vspace*{\fill}
+\end{titlepage}
+
+
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\section*{导言}
+\addcontentsline{toc}{section}{导言}
+
+我说把 设$\varepsilon>0$ 写成 $\forall \varepsilon>0$ 的入平时成绩零分, 你们尔朵龙吗?
+
+\newpage
+
+
+\section{数列极限}
+
+\subsection{数列极限例题补充}
+
+鉴于 CHM 在本节课中讲解的内容 WLZ 上学期几乎全部涉及, 我就挑选一道例题.
+
+\vspace{0.2cm}
+
+\begin{example}
+  设 $|a|>1$, $\alpha \in \mathbb{R^+}$, 那么 $\displaystyle \lim_{n \to \infty}\frac{n^\alpha}{a^n}=0$.
+\end{example}
+
+将 $a^n$ 形式上记为 $(1+(a-1))^n$ 并利用二项式定理展开, 保留第 $[\alpha]+1$ 项即可.  
+
+\vspace{0.2cm}
+\hspace{-2em} \textbf{习题 A} 证明恒等式: $\displaystyle C_{n}^{k-1}+C_{n}^{k}=C_{n+1}^k$.
+
+\vspace{0.2cm}
+
+\hspace{-2em} \textbf{习题 B} (Cesàro 求和极限)
+
+\vspace{0.2cm}
+
+设 $\{a_n\}_{n \ge 1}$ 为实数序列, 记 $\displaystyle \sigma_n=\frac{a_1+a_2+\cdots +a_n}{n}$.
+
+\vspace{0.2cm}
+
+\hspace{-2em} 1) 证明 $\displaystyle \lim_{n \to \infty} a_n=a \Rightarrow \displaystyle \lim_{n \to \infty} \sigma_n=a$. 其逆命题是否成立?
+
+\hspace{-2em} 2) 对 $k \ge 1$, 记 $b_k=a_{k+1}-a_{k}$. 证明, $\forall n \in \mathbb{N}_{\ge 2}$, 都有 $\displaystyle a_n-\sigma_n=\frac{1}{n}\sum_{k=1}^{n-1}kb_k$.
+
+\hspace{-2em} 3) 设 $\{kb_k\}_{k \ge 1}$ 有界并且 $\{\sigma_{n}\}_{n \ge 1}$ 收敛, 证明 $\{a_n\}$ 也收敛.
+
+
+\subsection{秘}
+
+\LaTeX 秘.
+
+\newpage
+
+\section{第二章}
+
+\begin{definition}
+目录会自动显示本节标题。
+\end{definition}
+
+\end{document}
