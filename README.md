@@ -1,2 +1,2 @@
 # ChmMathNote
-This is the class note of Teacher CHM, with some additional contents and exercises added.
+This is a linear algebra note that is not intended for beginners.
